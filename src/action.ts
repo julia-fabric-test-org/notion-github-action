@@ -129,10 +129,15 @@ export async function run(options: Options) {
       payload: github.payload as IssuesOpenedEvent,
     });
   } else if (github.eventName === 'workflow_dispatch') {
+    core.info('DBG1');
     const octokit = new Octokit({auth: core.getInput('github-token')});
+    core.info('DBG2');
     const notion = new Client({auth: core.getInput('notion-token')});
+    core.info('DBG3');
     const databaseId = core.getInput('notion-db');
+    core.info('DBG4');
     const issuePageIds = await createIssueMapping(notion, databaseId);
+    core.info('DBG5');
     if (!github.payload.repository?.full_name) {
       throw new Error('Unable to find repository name in github webhook context');
     }

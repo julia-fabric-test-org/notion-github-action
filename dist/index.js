@@ -25899,10 +25899,15 @@ function run(options) {
             });
         }
         else if (github.eventName === 'workflow_dispatch') {
+            core.info('DBG1');
             const octokit = new octokit_1.Octokit({ auth: core.getInput('github-token') });
+            core.info('DBG2');
             const notion = new src_1.Client({ auth: core.getInput('notion-token') });
+            core.info('DBG3');
             const databaseId = core.getInput('notion-db');
+            core.info('DBG4');
             const issuePageIds = yield sync_1.createIssueMapping(notion, databaseId);
+            core.info('DBG5');
             if (!((_a = github.payload.repository) === null || _a === void 0 ? void 0 : _a.full_name)) {
                 throw new Error('Unable to find repository name in github webhook context');
             }
