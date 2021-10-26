@@ -141,6 +141,7 @@ export async function run(options: Options) {
     if (!github.payload.repository?.full_name) {
       throw new Error('Unable to find repository name in github webhook context');
     }
+    core.info('DBG6');
     const githubRepo = github.payload.repository.full_name;
     await syncNotionDBWithGitHub(issuePageIds, octokit, notion, databaseId, githubRepo);
   } else {
