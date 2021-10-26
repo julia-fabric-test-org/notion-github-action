@@ -44,5 +44,17 @@
   "bugs": {
     "url": "https://github.com/instantish/notion-github-action/issues"
   },
-  "homepage": "https://github.com/instantish/notion-github-action#readme"
+  "homepage": "https://github.com/instantish/notion-github-action#readme",
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  }
 }
