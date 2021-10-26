@@ -26,9 +26,6 @@ export async function createIssueMapping(
   for (const {pageId, issueNumber} of issuesAlreadyInNotion) {
     issuePageIds.set(issueNumber, pageId);
   }
-  issuePageIds.forEach((value: string, key: number) => {
-    console.log(key, value);
-  });
   return issuePageIds;
 }
 

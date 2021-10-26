@@ -25988,9 +25988,6 @@ function createIssueMapping(notion, databaseId) {
         for (const { pageId, issueNumber } of issuesAlreadyInNotion) {
             issuePageIds.set(issueNumber, pageId);
         }
-        issuePageIds.forEach((value, key) => {
-            console.log(key, value);
-        });
         return issuePageIds;
     });
 }
