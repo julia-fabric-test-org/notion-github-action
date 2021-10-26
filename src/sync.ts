@@ -23,7 +23,6 @@ export async function createIssueMapping(
     pageId: string;
     issueNumber: number;
   }[] = await getIssuesAlreadyInNotion(notion, databaseId);
-  console.info(issuesAlreadyInNotion);
   for (const {pageId, issueNumber} of issuesAlreadyInNotion) {
     issuePageIds.set(issueNumber, pageId);
   }
@@ -40,7 +39,6 @@ export async function syncNotionDBWithGitHub(
   databaseId: string,
   githubRepo: string
 ) {
-  core.info('DBG7');
   const issues = await getGitHubIssues(octokit, githubRepo);
   const pagesToCreate = getIssuesNotInNotion(issuePageIds, issues);
   await createPages(notion, databaseId, pagesToCreate);
