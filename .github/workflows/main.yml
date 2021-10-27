@@ -1,3 +1,5 @@
+name: Notion Job
+
 on:
   workflow_dispatch:
   issues:
